@@ -138,11 +138,6 @@
         renderer.setSize(window.innerWidth, window.innerHeight);
         renderer.setClearColor(0x000000, 0);
         
-        const canvas2d = document.createElement('canvas');
-        canvas2d.width = 1024;
-        canvas2d.height = 1024;
-        const ctx = canvas2d.getContext('2d');
-        
         ctx.fillStyle = '#1a1a1a';
         ctx.fillRect(0, 0, 1024, 1024);
         
@@ -251,8 +246,8 @@
         ctx.strokeText('GROUP', centerX, centerY + 320);
         ctx.fillText('GROUP', centerX, centerY + 320);
         
-        const texture = new THREE.CanvasTexture(canvas2d);
-        texture.needsUpdate = true;
+        const textureLoader = new THREE.TextureLoader();
+        const texture = textureLoader.load("BSG logo.png");
         
         const geometry = new THREE.PlaneGeometry(4, 4);
         const material = new THREE.MeshBasicMaterial({
